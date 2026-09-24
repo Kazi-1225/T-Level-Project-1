@@ -1,11 +1,14 @@
-# Surprise battle
+# Slime battle
 from playsound3 import playsound
+
+#! def hit():
+   #! playsound("hit.mp3")
 
 player_hp = 5
 slime_hp = 5
 
     # show Azmo_Fight
-    # show Megabat_Fight
+    # show Slime_Fight
 print("Azmo encounters a slime! What will he do?")
 Option1 = "A - Analyse"
 Option2 = "B - Slash"
@@ -27,12 +30,19 @@ while player_hp > 0 and slime_hp >0:
         print("Slime - A common cave enemy, they are easily agitated by others and have a weak skin barrier.")
     if userConclusion == PlayerChoice2:
         print("Azmo used his claws to slash at the slime! It was badly injured!")
+        #hit()
         slime_hp = (slime_hp - 2)
     if userConclusion == PlayerChoice3:
         print("Azmo swished his tail at the slime! This greatly angered it..."
-                  "The slimes' attack increased!")
+                  "the slimes' attack increased!")
+        print("The slime hit Azmo!")
+        #hit()
+        player_hp = (player_hp - 2)
     if slime_hp <= 0:
         print("Azmo defeated the slime!")
-
     if player_hp <= 0:
         print("Azmo was badly injured and had to retreat!")
+    elif userConclusion == PlayerChoice4:
+        print("Azmo ran away!")
+        break
+        # show cave_bg
