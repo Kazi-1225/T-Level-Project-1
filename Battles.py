@@ -1,8 +1,11 @@
 # Final Battle
 from playsound3 import playsound
 
-#! def hit():
-    #! playsound("hit.mp3")
+def hit():
+    playsound("hit.mp3")
+
+def run():
+    playsound("run.mp3")
 
 player_hp = 5
 Megabat_hp = 5
@@ -28,22 +31,25 @@ while player_hp > 0 and Megabat_hp > 0:
     Option = input()
     if Option == PlayerInput1:
         print("Megabat - A huge bat well-known for its large wings, capable of creating huge gusts of wind, they travel through caves in search of food.")
-    if Option == PlayerInput2:
+    elif Option == PlayerInput2:
         print("Azmo flapped his wings...but the Megabat flapped back!"
             "It's strong gusts of wind made Azmo faint!")
         player_hp = (player_hp - 5)
-       # hit()
+        hit()
     # show battle lost screen
-    if Option == PlayerInput3:
+    elif Option == PlayerInput3:
         print("Azmo bribed the Megabat with some fruit! The Megabat got occupied eating!")
         break
+    elif Option == PlayerInput4:
+        print("Azmo ran away!")
+        run()
+        break
+    else:
+        print("Wrong input!")
+    # show cave bg
     if player_hp <= 0:
         print("Azmo was severly injured! "
               "Battle lost.")
     # show game over screen
     if Megabat_hp <= 0:
         print("Azmo defeated the Megabat!")
-    elif Option == PlayerInput4:
-        print("Azmo ran away!")
-        break
-    # show cave bg
