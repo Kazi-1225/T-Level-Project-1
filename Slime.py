@@ -35,11 +35,11 @@ while player_hp > 0 and slime_hp >0:
     userConclusion = input()
     if userConclusion == PlayerChoice1:
         print("Slime - A common cave enemy, they are easily agitated by others and have a weak skin barrier.")
-    if userConclusion == PlayerChoice2:
+    elif userConclusion == PlayerChoice2:
         print("Azmo used his claws to slash at the slime! It was badly injured!")
         hit()
         slime_hp = (slime_hp - 2)
-    if userConclusion == PlayerChoice3:
+    elif userConclusion == PlayerChoice3:
         print("Azmo swished his tail at the slime! This greatly angered it..."
                   "the slimes' attack increased!")
         print("The slime hit Azmo!")
@@ -54,6 +54,7 @@ while player_hp > 0 and slime_hp >0:
     if slime_hp <= 0:
         print("Azmo defeated the slime!")
         battleWon()
+        break
     if player_hp <= 0:
         print("Azmo was badly injured and had to retreat! Battle lost.")
         print("""                                                                                   
@@ -64,9 +65,20 @@ while player_hp > 0 and slime_hp >0:
         ▀██████▀  ███  ███ ███      ███ ▀███████    ▀█████▀    ▀████▀   ▀███████ ███  ▀███ 
 
                                                                                            """)
+
+while True:
+    try:
         play_again = input("Would you like to play again ? [yes/no]: ")
-        if play_again == "yes":
-            print(" ")
-        elif play_again == "no":
-            sys.exit()
-        # show cave_bg
+        if play_again not in ["yes", "no"]:
+            raise ValueError
+    except ValueError:
+        print("Please enter 'yes' or 'no'")
+
+    if play_again == "yes":
+        print("Starting new game...")
+        break
+    elif play_again == "no":
+        print("Thanks for playing! Goodbye!")
+        break
+    else:
+        print("")
