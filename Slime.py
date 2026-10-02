@@ -1,4 +1,5 @@
 # Slime battle
+import sys
 from playsound3 import playsound
 
 def hit():
@@ -48,9 +49,24 @@ while player_hp > 0 and slime_hp >0:
         print("Azmo ran away!")
         run()
         break
-        # show cave_bg
+    else:
+        print("Wrong input!")
     if slime_hp <= 0:
         print("Azmo defeated the slime!")
         battleWon()
     if player_hp <= 0:
-        print("Azmo was badly injured and had to retreat!")
+        print("Azmo was badly injured and had to retreat! Battle lost.")
+        print("""                                                                                   
+         ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄      ▄▄▄  ▄▄▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄   
+        ███▀▀▀▀▀  ▄██▀▀██▄ ████▄  ▄████ ███▀▀▀▀▀   ▄███████▄ ▀███  ███▀ ███▀▀▀▀▀ ███▀▀███▄ 
+        ███       ███  ███ ███▀████▀███ ███▄▄      ███   ███  ███  ███  ███▄▄    ███▄▄███▀ 
+        ███  ███▀ ███▀▀███ ███  ▀▀  ███ ███        ███▄▄▄███  ███▄▄███  ███      ███▀▀██▄  
+        ▀██████▀  ███  ███ ███      ███ ▀███████    ▀█████▀    ▀████▀   ▀███████ ███  ▀███ 
+
+                                                                                           """)
+        play_again = input("Would you like to play again ? [yes/no]: ")
+        if play_again == "yes":
+            print(" ")
+        elif play_again == "no":
+            sys.exit()
+        # show cave_bg
