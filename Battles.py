@@ -1,4 +1,5 @@
 # Final Battle
+import sys
 from playsound3 import playsound
 
 def hit():
@@ -48,8 +49,20 @@ while player_hp > 0 and Megabat_hp > 0:
         print("Wrong input!")
     # show cave bg
     if player_hp <= 0:
-        print("Azmo was severly injured! "
+        print("Azmo was severely injured! "
               "Battle lost.")
-    # show game over screen
+        print("""                                                                                   
+         ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄      ▄▄▄  ▄▄▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄   
+        ███▀▀▀▀▀  ▄██▀▀██▄ ████▄  ▄████ ███▀▀▀▀▀   ▄███████▄ ▀███  ███▀ ███▀▀▀▀▀ ███▀▀███▄ 
+        ███       ███  ███ ███▀████▀███ ███▄▄      ███   ███  ███  ███  ███▄▄    ███▄▄███▀ 
+        ███  ███▀ ███▀▀███ ███  ▀▀  ███ ███        ███▄▄▄███  ███▄▄███  ███      ███▀▀██▄  
+        ▀██████▀  ███  ███ ███      ███ ▀███████    ▀█████▀    ▀████▀   ▀███████ ███  ▀███ 
+
+                                                                                           """)
+        play_again = input("Would you like to play again ? [yes/no]: ")
+        if play_again == "yes":
+            print("Restarting...")
+        elif play_again == "no":
+            sys.exit()
     if Megabat_hp <= 0:
         print("Azmo defeated the Megabat!")
