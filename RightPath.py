@@ -1,3 +1,8 @@
+from playsound3 import playsound
+
+def takeItem():
+    playsound("Item.wav")
+
 pathChoice = input("Which path will Azmo go down?"
                    ">>> Left        >>> Right")
 while pathChoice == "":
@@ -22,6 +27,8 @@ elif pathChoice == "Right":
     print(bush2)
     print(bush3)
     print(bush4)
+    fruit_decision = ("Yes", "No")
+    take_fruit_1 = 
 while True:
     try:
         fruit_choice = input("Each bush contains a different type of fruit! Which should Azmo investigate?")
@@ -32,9 +39,15 @@ while True:
 
     if fruit_choice == bush_choice1:
         print("Azmo went to inspect the first bush!")
+        print(input("Will Azmo take the fruit from this bush?"))
+        if fruit_decision == take_fruit_1:
+            takeItem()
+            print("Azmo took one fruit from the first bush!")
         break
     elif fruit_choice == bush_choice2:
         print("Azmo went to inspect the second bush!")
+        print("Will Azmo take the fruit from this bush?")
+        fruit_decision = input("")
         break
     elif fruit_choice == bush_choice3:
         print("Azmo went to inspect the third bush!")
