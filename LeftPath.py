@@ -82,7 +82,7 @@ while True:
         if play_again not in ["yes", "no"]:
             raise ValueError
     except ValueError:
-        print("Wrong input!")
+        print("Please enter 'yes' or 'no'")
 
     if play_again == "yes":
         print("Starting new game...")
