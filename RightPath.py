@@ -4,14 +4,15 @@ import sys
 def takeItem():
     playsound("Item.wav")
 
-pathChoice = input("Which path will Azmo go down?"
-                   ">>> Left        >>> Right")
-while pathChoice == "":
-    pathChoice = input("Which path will Azmo go down?"
-                       "        >>> Left        >>> Right:")
-    if pathChoice not in ["Left", "Right"]:
+while True:
+    try:
+        pathChoice = input("Which path will Azmo go down?"
+                            ">>> Left        >>> Right")
+        if pathChoice not in ["Left", "Right"]:
+            raise ValueError
+    except ValueError:
         print("Please type either 'Left' or 'Right'.")
-    elif pathChoice == "Left" or pathChoice == "Right":
+    if pathChoice == "Left" or pathChoice == "Right":
         break
 if pathChoice == "Left":
     print("Azmo went down the left path!")
@@ -33,6 +34,9 @@ elif pathChoice == "Right":
     print(bush3)
     print(bush4)
     fruit_decision = ("Yes", "No")
+    take_fruit_1 = ("Yes")
+    dont_take_fruit = ("No")
+
 while True:
     try:
         fruit_choice = input("Each bush contains a different type of fruit! Which should Azmo investigate?")
@@ -43,9 +47,12 @@ while True:
 
     if fruit_choice == bush_choice1:
         print("Azmo went to inspect the first bush!")
-        print(input("Will Azmo take the fruit from this bush?"))
+        print(input("Will Azmo take the fruit from this bush? Yes or No:"))
         if fruit_decision == take_fruit_1:
+            print("Azmo took the fruit!")
             takeItem()
+        elif fruit_decision == dont_take_fruit:
+            print("Azmo didn't take the fruit! Which bush shall he inspect next?")
             print("Azmo took one fruit from the first bush!")
         break
     elif fruit_choice == bush_choice2:
