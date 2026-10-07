@@ -3,8 +3,6 @@
 import sys
 from playsound3 import playsound
 
-import sys
-
 def gameOverScreen():
         print("""                                                                                   
          ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄      ▄▄▄  ▄▄▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄   
@@ -41,6 +39,8 @@ def battleWon():
 def run():
     playsound("run.mp3")
 
+def battleLost():
+    playsound("gameoversound.mp3")
 
 def slimebattle():
     player_hp = 5
@@ -89,6 +89,7 @@ def slimebattle():
             break
         if player_hp <= 0:
             print("Azmo was badly injured and had to retreat! Battle lost.")
+            battleLost()
             gameOverScreen()
 
 # Title Screen
@@ -122,11 +123,14 @@ else:
     print("Azmo happens across two separate paths.")
     print("The right path has small pieces of gold trailing along the cave floor, further into it.")
     print("The left path has a few interesting looking fruits scattered across the floor.")
-pathChoice = input("Which path will Azmo go down?"
-                   ">>> Left        >>> Right")
-while pathChoice == "":
-    pathChoice = input("Which path will Azmo go down?"
-                       "        >>> Left        >>> Right:")
+while True:
+    try:
+        pathChoice = input("Which path will Azmo go down?"
+                            ">>> Left        >>> Right")
+        if pathChoice not in ["Left", "Right"]:
+            raise ValueError
+    except ValueError:
+        print("Please type either 'Left' or 'Right'.")
     if pathChoice == "Left" or pathChoice == "Right":
         break
 if pathChoice == "Left":
@@ -136,5 +140,3 @@ if pathChoice == "Left":
 elif pathChoice == "Right":
     print("Azmo went down the right path!")
     # show Cave_Right
-else:
-    print("Incorrect input. Try again.")
