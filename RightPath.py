@@ -1,4 +1,5 @@
 from playsound3 import playsound
+import sys
 
 def takeItem():
     playsound("Item.wav")
@@ -8,10 +9,14 @@ pathChoice = input("Which path will Azmo go down?"
 while pathChoice == "":
     pathChoice = input("Which path will Azmo go down?"
                        "        >>> Left        >>> Right:")
-    if pathChoice == "Left" or pathChoice == "Right":
+    if pathChoice not in ["Left", "Right"]:
+        print("Please type either 'Left' or 'Right'.")
+    elif pathChoice == "Left" or pathChoice == "Right":
         break
 if pathChoice == "Left":
     print("Azmo went down the left path!")
+    sys.exit()
+
 elif pathChoice == "Right":
     print("Azmo went down the right path!")
     print("As Azmo ventures further down he happens upon four bushes...")
@@ -28,7 +33,6 @@ elif pathChoice == "Right":
     print(bush3)
     print(bush4)
     fruit_decision = ("Yes", "No")
-    take_fruit_1 = 
 while True:
     try:
         fruit_choice = input("Each bush contains a different type of fruit! Which should Azmo investigate?")
