@@ -9,6 +9,10 @@ def hit():
 def battleWon():
     playsound("Win.wav")
 
+def battleLost():
+    playsound("gameoversound.mp3")
+
 takeItem()
 hit()
 battleWon()
+battleLost()
