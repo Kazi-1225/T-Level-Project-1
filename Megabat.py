@@ -8,6 +8,36 @@ def hit():
 def run():
     playsound("run.mp3")
 
+def battleLost():
+    playsound("gameoversound.mp3")
+
+def gameOverScreen():
+    print("""                                                                                   
+         ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄      ▄▄▄  ▄▄▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄   
+        ███▀▀▀▀▀  ▄██▀▀██▄ ████▄  ▄████ ███▀▀▀▀▀   ▄███████▄ ▀███  ███▀ ███▀▀▀▀▀ ███▀▀███▄ 
+        ███       ███  ███ ███▀████▀███ ███▄▄      ███   ███  ███  ███  ███▄▄    ███▄▄███▀ 
+        ███  ███▀ ███▀▀███ ███  ▀▀  ███ ███        ███▄▄▄███  ███▄▄███  ███      ███▀▀██▄  
+        ▀██████▀  ███  ███ ███      ███ ▀███████    ▀█████▀    ▀████▀   ▀███████ ███  ▀███ 
+
+                                                                                           """)
+
+    while True:
+        try:
+            play_again = input("Would you like to play again ? [yes/no]: ")
+            if play_again not in ["yes", "no"]:
+                raise ValueError
+        except ValueError:
+            print("Wrong input!")
+
+        if play_again == "yes":
+            print("Starting new game...")
+            break
+        elif play_again == "no":
+            print("Thanks for playing! Goodbye!")
+            sys.exit()
+        else:
+            print("")
+
 player_hp = 5
 Megabat_hp = 5
 
@@ -51,28 +81,5 @@ while player_hp > 0 and Megabat_hp > 0:
     if player_hp <= 0:
         print("Azmo was severely injured! "
               "Battle lost.")
-        print("""                                                                                   
-                 ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄      ▄▄▄  ▄▄▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄   
-                ███▀▀▀▀▀  ▄██▀▀██▄ ████▄  ▄████ ███▀▀▀▀▀   ▄███████▄ ▀███  ███▀ ███▀▀▀▀▀ ███▀▀███▄ 
-                ███       ███  ███ ███▀████▀███ ███▄▄      ███   ███  ███  ███  ███▄▄    ███▄▄███▀ 
-                ███  ███▀ ███▀▀███ ███  ▀▀  ███ ███        ███▄▄▄███  ███▄▄███  ███      ███▀▀██▄  
-                ▀██████▀  ███  ███ ███      ███ ▀███████    ▀█████▀    ▀████▀   ▀███████ ███  ▀███ 
-
-                                                                                                   """)
-
-        while True:
-            try:
-                play_again = input("Would you like to play again ? [yes/no]: ")
-                if play_again not in ["yes", "no"]:
-                    raise ValueError
-            except ValueError:
-                print("Please enter 'yes' or 'no'")
-
-            if play_again == "yes":
-                print("Starting new game...")
-                break
-            elif play_again == "no":
-                print("Thanks for playing! Goodbye!")
-                sys.exit()
-            else:
-                print("")
+        battleLost()
+        gameOverScreen()
