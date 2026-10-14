@@ -47,6 +47,7 @@ slime_hp = 5
     # show Azmo_Fight
     # show Slime_Fight
 print("Azmo encounters a slime! What will he do?")
+print("=========================================")
 Option1 = "A - Analyse"
 Option2 = "B - Slash"
 Option3 = "C - Swish tail"
@@ -62,6 +63,7 @@ while player_hp > 0 and slime_hp >0:
     print(Option2)
     print(Option3)
     print(Option4)
+    print("=========================================")
     userConclusion = input()
     if userConclusion == PlayerChoice1:
         print("Slime - A common cave enemy, they are easily agitated by others and have a weak skin barrier.")
