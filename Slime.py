@@ -81,6 +81,8 @@ while player_hp > 0 and slime_hp >0:
         print("Azmo ran away!")
         run()
         break
+    elif userConclusion != PlayerChoice1 or userConclusion != PlayerChoice2 or userConclusion != PlayerChoice3 or userConclusion != PlayerChoice4:
+        print("Wrong input!")
         # show cave_bg
     if slime_hp <= 0:
         print("Azmo defeated the slime!")
