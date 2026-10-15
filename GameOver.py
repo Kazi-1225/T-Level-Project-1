@@ -1,28 +1,23 @@
 import sys
 
 def gameOverScreen():
-        print("""                                                                                   
+    print("""                                                                                   
          ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄      ▄▄▄  ▄▄▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄   
         ███▀▀▀▀▀  ▄██▀▀██▄ ████▄  ▄████ ███▀▀▀▀▀   ▄███████▄ ▀███  ███▀ ███▀▀▀▀▀ ███▀▀███▄ 
         ███       ███  ███ ███▀████▀███ ███▄▄      ███   ███  ███  ███  ███▄▄    ███▄▄███▀ 
         ███  ███▀ ███▀▀███ ███  ▀▀  ███ ███        ███▄▄▄███  ███▄▄███  ███      ███▀▀██▄  
         ▀██████▀  ███  ███ ███      ███ ▀███████    ▀█████▀    ▀████▀   ▀███████ ███  ▀███ 
-
                                                                                            """)
 
-        while True:
-            try:
-                play_again = input("Would you like to play again ? [yes/no]: ")
-                if play_again not in ["yes", "no"]:
-                    raise ValueError
-            except ValueError:
-                print("Wrong input!")
+    while True:
+        play_again = input("Would you like to play again ? [yes/no]: ").strip().lower()
+        if play_again == "yes":
+            print("Starting new game...")
+            return "restart"
+        elif play_again == "no":
+            print("Thanks for playing! Goodbye!")
+            sys.exit()
+        else:
+            print("Please enter either 'yes' or 'no'")
 
-            if play_again == "yes":
-                print("Starting new game...")
-                break
-            elif play_again == "no":
-                print("Thanks for playing! Goodbye!")
-                sys.exit()
-            else:
-                print("")
+gameOverScreen()
